@@ -1,6 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const asyncError = require("express-async-errors");
+const rateLimit = require("express-rate-limit");
 const error = require("./middleware/error");
 const home = require("./routes/home");
 const bnRandom = require("./routes/random/random.bn.verse");
@@ -13,7 +14,6 @@ const svRandom = require("./routes/random/random.sv.verse");
 const trRandom = require("./routes/random/random.tr.verse");
 const urRandom = require("./routes/random/random.ur.verse");
 const zhRandom = require("./routes/random/random.zh.verse");
-const test = require("./routes/random/random.bn.verse.test");
 
 const bnSurah = require("./routes/surah/surah.bn");
 const enSurah = require("./routes/surah/surah.en");
@@ -26,9 +26,18 @@ const trSurah = require("./routes/surah/surah.tr");
 const urSurah = require("./routes/surah/surah.ur");
 const zhSurah = require("./routes/surah/surah.zh");
 
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minutes
+  max: 20, // Limit each IP to 20 requests per `window` (here, per 20 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
 const app = express();
 
 // middleware
+app.use(limiter);
+app.use(helmet());
 
 // routes
 app.use("/", home);
