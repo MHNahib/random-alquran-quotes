@@ -1,0 +1,783 @@
+swagger: "2.0"
+info:
+  description: >-
+    Al Quran API is an api designed for making life easy for young developers who want to build an app/ website on the base of Al Quran. The api is free and any one can use it. There is no limitation of the api. The api contains 10 language [Bengali, Chinese, English, Spanish, French, Indonesian, Russian, Swedish, Turkish, Urdu] transations of Al quran. It can also return a random single quote with translation from Al quran. The API is developed by M. H. Nahib.
+  version: 1.0.0
+  title: "Al Quran API"
+  contact:
+    url: https://www.instagram.com/m.h.nahib/
+  server:
+    -url: "http://localhost:3000/"
+    description: Development server
+    -url: "alquranapicls.herokuapp.com"
+    description: Production server
+host: alquranapicls.herokuapp.com
+basePath: /api/v1/
+schemes:
+  - https
+  - http
+
+# bangla 
+paths:
+  /bn/{surahNumber}:
+    get:
+      summary: Returns the surah with bengali translation as object.
+      description: Returns the surah with bengali translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Chinese
+  /zh/{surahNumber}:
+    get:
+      summary: Returns the surah with english translation as object.
+      description: Returns the surah with english translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+                            
+
+# english
+  /en/{surahNumber}:
+    get:
+      summary: Returns the surah with english translation as object.
+      description: Returns the surah with english translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Spanish
+  /es/{surahNumber}:
+    get:
+      summary: Returns the surah with Spanish translation as object.
+      description: Returns the surah with Spanish translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string                         
+
+# French
+  /fr/{surahNumber}:
+    get:
+      summary: Returns the surah with French translation as object.
+      description: Returns the surah with French translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Indonesian
+  /id/{surahNumber}:
+    get:
+      summary: Returns the surah with Indonesian translation as object.
+      description: Returns the surah with Indonesian translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Russian
+  /ru/{surahNumber}:
+    get:
+      summary: Returns the surah with Russian translation as object.
+      description: Returns the surah with Russian translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Swedish
+  /sv/{surahNumber}:
+    get:
+      summary: Returns the surah with Swedish translation as object.
+      description: Returns the surah with Swedish translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Turkish
+  /tr/{surahNumber}:
+    get:
+      summary: Returns the surah with Turkish translation as object.
+      description: Returns the surah with Turkish translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Urdu
+  /ur/{surahNumber}:
+    get:
+      summary: Returns the surah with Urdu translation as object.
+      description: Returns the surah with Urdu translation as object.
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: surahNumber
+          in: path
+          description: Surah number in Al Quran
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+
+# random verse
+
+  /bn/random:
+    get:
+      summary: Returns a single verse with bengali translation as object.
+      description: Returns a single verse with bengali translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Chinese
+  /zh/random:
+    get:
+      summary: Returns a single verse with english translation as object.
+      description: Returns a single verse with english translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+                            
+
+# english
+  /en/random:
+    get:
+      summary: Returns a single verse with english translation as object.
+      description: Returns a single verse with english translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Spanish
+  /es/random:
+    get:
+      summary: Returns a single verse with Spanish translation as object.
+      description: Returns a single verse with Spanish translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string                         
+
+# French
+  /fr/random:
+    get:
+      summary: Returns a single verse with French translation as object.
+      description: Returns a single verse with French translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Indonesian
+  /id/random:
+    get:
+      summary: Returns a single verse with Indonesian translation as object.
+      description: Returns a single verse with Indonesian translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Russian
+  /ru/random:
+    get:
+      summary: Returns a single verse with Russian translation as object.
+      description: Returns a single verse with Russian translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Swedish
+  /sv/random:
+    get:
+      summary: Returns a single verse with Swedish translation as object.
+      description: Returns a single verse with Swedish translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Turkish
+  /tr/random:
+    get:
+      summary: Returns a single verse with Turkish translation as object.
+      description: Returns a single verse with Turkish translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string
+
+# Urdu
+  /ur/random:
+    get:
+      summary: Returns a single verse with Urdu translation as object.
+      description: Returns a single verse with Urdu translation as object.
+      produces:
+        - application/xml
+        - application/json
+     
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+            properties:
+              surah_no:
+                type: integer
+              name:
+                type: string
+              transliteration:
+                type: string  
+              type:
+                type: string  
+              total_verses:
+                type: integer
+              verse:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  translation:
+                    type: string

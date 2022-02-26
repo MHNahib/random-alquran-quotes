@@ -1,7 +1,11 @@
 const express = require("express");
 const helmet = require("helmet");
+var cors = require("cors");
 const asyncError = require("express-async-errors");
 const rateLimit = require("express-rate-limit");
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerJsDocs = YAML.load("./docs/api.yaml");
 const error = require("./middleware/error");
 const home = require("./routes/home");
 const bnRandom = require("./routes/random/random.bn.verse");
@@ -38,6 +42,16 @@ const app = express();
 // middleware
 app.use(limiter);
 app.use(helmet());
+
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET",
+  })
+);
+
+// swagger docs
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
 // routes
 app.use("/", home);
