@@ -4,6 +4,7 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
+const response = require("../../services/response");
 const url = `https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/quran_bn.json`;
 const generate = require("../../lib/random.verse");
 
@@ -11,7 +12,8 @@ const generate = require("../../lib/random.verse");
 router.get("/", async (req, res) => {
   const verse = await generate(url);
 
-  res.send(verse);
+  // res.send(verse);
+  response(res, true, verse, 200, "Successful");
 });
 
 module.exports = router;
